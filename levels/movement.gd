@@ -1,13 +1,25 @@
 extends KinematicBody2D
 
 export var SPEED = 250
+export(Texture) var def_tex
+export(Texture) var alt_tex
 
+onready var player = $"Player"
+
+var toggled = false
 var velocity
 
 func _ready():
 	velocity = Vector2(0,0)
 
 func _process(delta):
+	if Input.is_action_just_released("ui_select"):
+		toggled = !toggled
+		if toggled:
+			player.texture = alt_tex
+		else:
+			player.texture = def_tex
+
 	if Input.is_action_just_released("ui_up"):
 		velocity.y = 0
 	if Input.is_action_just_released("ui_down"):
