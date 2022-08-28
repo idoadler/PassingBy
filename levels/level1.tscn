@@ -3,8 +3,8 @@
 [ext_resource path="res://godot-icon.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/background-white.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/LightTexture-radialgradient.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/godot-icon-pink.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/godot-icon-blue.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/blue_sqr_face1.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/pink_crc_face.png" type="Texture" id=5]
 
 [node name="Node2D" type="Node2D"]
 
@@ -23,33 +23,33 @@ texture = ExtResource( 3 )
 
 [node name="Enemy" type="Sprite" parent="."]
 position = Vector2( 486, 148 )
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 
 [node name="Enemy2" type="Sprite" parent="."]
 position = Vector2( 767, 148 )
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 
 [node name="Exit" type="Sprite" parent="."]
 position = Vector2( 851, 140 )
-texture = ExtResource( 1 )
+texture = ExtResource( 4 )
 
 [node name="Nutral-enemy" type="Sprite" parent="."]
 position = Vector2( 272, 286 )
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 
 [node name="Npc" type="Sprite" parent="."]
 position = Vector2( 542, 570 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 
 [node name="Npc2" type="Sprite" parent="."]
 position = Vector2( 461, 544 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 
 [node name="Npc3" type="Sprite" parent="."]
 modulate = Color( 1, 0, 0.937255, 1 )
 position = Vector2( 618, 570 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 
 [node name="Npc-enemy" type="Sprite" parent="."]
 position = Vector2( 540, 496 )
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
