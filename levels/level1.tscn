@@ -3,7 +3,7 @@
 [ext_resource path="res://Sprites/pink-circle-spray.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/background-grey-spray.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/LightTexture-radialgradient.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/blue_sqr_face1.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/blue_sqr_faceN.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/pink_crc_faceN.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/blue-sqr-spray.png" type="Texture" id=6]
 [ext_resource path="res://levelsSpriteFlipH.tres" type="Animation" id=7]
@@ -104,7 +104,7 @@ texture = ExtResource( 6 )
 
 [node name="Face" type="Sprite" parent="Enemy"]
 position = Vector2( 1.40009, -4.59999 )
-scale = Vector2( 2.57812, 2.42187 )
+scale = Vector2( 3.5, 3 )
 texture = ExtResource( 4 )
 
 [node name="Enemy2" type="KinematicBody2D" parent="."]
@@ -122,7 +122,7 @@ texture = ExtResource( 6 )
 
 [node name="Face" type="Sprite" parent="Enemy2"]
 position = Vector2( 1.40009, -4.59999 )
-scale = Vector2( 2.57812, 2.42187 )
+scale = Vector2( 3.5, 3 )
 texture = ExtResource( 4 )
 
 [node name="Enemy3" type="KinematicBody2D" parent="."]
@@ -140,7 +140,7 @@ texture = ExtResource( 6 )
 
 [node name="Face" type="Sprite" parent="Enemy3"]
 position = Vector2( 1.40009, -4.59999 )
-scale = Vector2( 2.57812, 2.42187 )
+scale = Vector2( 3.5, 3 )
 texture = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Enemy3"]
@@ -164,8 +164,8 @@ scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 6 )
 
 [node name="Face" type="Sprite" parent="Enemy4"]
-position = Vector2( -1, -14 )
-scale = Vector2( 2.57812, 2.42187 )
+position = Vector2( 1, -8 )
+scale = Vector2( 3.5, 3 )
 texture = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Enemy4"]
