@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pink_crc_face.png-15227505f72bf052a12b7aab8279df2f.stex"
+path="res://.import/pink_crc_faceN.png-402c0c00ae7a35726c2ac52b00840fac.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/pink_crc_face.png"
-dest_files=[ "res://.import/pink_crc_face.png-15227505f72bf052a12b7aab8279df2f.stex" ]
+source_file="res://Sprites/pink_crc_faceN.png"
+dest_files=[ "res://.import/pink_crc_faceN.png-402c0c00ae7a35726c2ac52b00840fac.stex" ]
 
 [params]
 

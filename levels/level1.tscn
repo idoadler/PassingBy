@@ -4,7 +4,7 @@
 [ext_resource path="res://Sprites/background-grey-spray.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/LightTexture-radialgradient.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/blue_sqr_face1.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/pink_crc_face.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/pink_crc_faceN.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/blue-sqr-spray.png" type="Texture" id=6]
 [ext_resource path="res://levelsSpriteFlipH.tres" type="Animation" id=7]
 [ext_resource path="res://levels/movement.gd" type="Script" id=8]
@@ -70,18 +70,12 @@ modulate = Color( 0.859375, 0.859375, 0.859375, 1 )
 position = Vector2( 960, 540 )
 texture = ExtResource( 2 )
 
-[node name="Light2D" type="Light2D" parent="Background"]
-position = Vector2( 60, 649 )
-scale = Vector2( 3.24113, 2.49222 )
-texture = ExtResource( 3 )
-color = Color( 0.941176, 0.654902, 0.94902, 1 )
-
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
 position = Vector2( 220, 221 )
 scale = Vector2( 0.1, 0.1 )
 script = ExtResource( 8 )
-def_tex = ExtResource( 6 )
-alt_tex = ExtResource( 1 )
+def_tex = ExtResource( 1 )
+alt_tex = ExtResource( 6 )
 
 [node name="Light2D" type="Light2D" parent="KinematicBody2D"]
 scale = Vector2( 19.9695, 19.9072 )
@@ -89,12 +83,10 @@ texture = ExtResource( 3 )
 color = Color( 0.294118, 0.772549, 0.960784, 1 )
 
 [node name="Player" type="Sprite" parent="KinematicBody2D"]
-scale = Vector2( 1, 1 )
-texture = ExtResource( 6 )
+texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
 position = Vector2( -30, 60 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 
 [node name="Enemy" type="KinematicBody2D" parent="."]
@@ -172,7 +164,7 @@ scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 6 )
 
 [node name="Face" type="Sprite" parent="Enemy4"]
-position = Vector2( 1.40009, -4.59999 )
+position = Vector2( -1, -14 )
 scale = Vector2( 2.57812, 2.42187 )
 texture = ExtResource( 4 )
 
@@ -195,8 +187,8 @@ scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 1 )
 
 [node name="PinkCrcFace" type="Sprite" parent="Npc"]
-position = Vector2( -120, 109.999 )
-scale = Vector2( 25, 25 )
+position = Vector2( 20, -30 )
+scale = Vector2( 30, 28.1562 )
 texture = ExtResource( 5 )
 
 [node name="Npc2" type="Sprite" parent="."]
@@ -204,7 +196,17 @@ position = Vector2( 860, 970 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 1 )
 
+[node name="PinkCrcFace2" type="Sprite" parent="Npc2"]
+position = Vector2( -10, 0 )
+scale = Vector2( 30, 28.1562 )
+texture = ExtResource( 5 )
+
 [node name="Npc3" type="Sprite" parent="."]
 position = Vector2( 1219, 1057 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 1 )
+
+[node name="PinkCrcFace3" type="Sprite" parent="Npc3"]
+position = Vector2( 0.000488281, -80 )
+scale = Vector2( 30, 28.1562 )
+texture = ExtResource( 5 )
