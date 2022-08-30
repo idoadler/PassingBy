@@ -40,3 +40,5 @@ func _process(delta):
 
 	move_and_slide(velocity*SPEED)
 	
+	position.x = clamp(position.x, 0, get_viewport_rect().size.x)
+	position.y = clamp(position.y, 0, get_viewport_rect().size.y)
