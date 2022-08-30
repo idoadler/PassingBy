@@ -38,12 +38,5 @@ func _process(delta):
 	velocity.x = clamp(velocity.x,-1,1)
 	velocity.y = clamp(velocity.y,-1,1)
 
-#	pos += velocity * SPEED
-
 	move_and_slide(velocity*SPEED)
 	
-#	var size = get_viewport_rect().size
-#	var pos = get_position()
-#	pos.x = clamp (pos.x,0,size.x)
-#	pos.y = clamp (pos.y,0,size.y)
-#	set_position(pos)
