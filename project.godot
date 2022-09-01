@@ -12,7 +12,7 @@ config_version=4
 
 config/name="Passing By"
 run/main_scene="res://levels/level1.tscn"
-config/icon="res://godot-icon.png"
+config/icon="res://Sprites/pink_crc_faceN.png"
 
 [display]
 
