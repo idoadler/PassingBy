@@ -97,7 +97,7 @@ script = ExtResource( 6 )
 [node name="Light2D" type="Light2D" parent="."]
 scale = Vector2( 19.9695, 19.9072 )
 texture = ExtResource( 5 )
-color = Color( 0.294118, 0.772549, 0.960784, 1 )
+color = Color( 0.862745, 0.294118, 0.960784, 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 4 )
