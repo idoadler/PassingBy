@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Sprites/pink-circle-spray.png" type="Texture" id=1]
-[ext_resource path="res://Sprites/background-iso.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/background-iso-clean.png" type="Texture" id=2]
 [ext_resource path="res://levels/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/door.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/pink_crc_faceN.png" type="Texture" id=5]
@@ -48,7 +48,7 @@ polygon = PoolVector2Array( -110, 65, -114, -213, 112, -209, 114, 71 )
 
 [sub_resource type="OccluderPolygon2D" id=15]
 closed = false
-polygon = PoolVector2Array( 128, 61, 49, 1046 )
+polygon = PoolVector2Array( 128, 61, -1132, 854 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -141,6 +141,7 @@ scale = Vector2( 2.66911, 1.54911 )
 shape = SubResource( 13 )
 
 [node name="Particles2D_right" type="Particles2D" parent="Exit"]
+visible = false
 position = Vector2( 117, 72 )
 scale = Vector2( 10, 10 )
 amount = 16
@@ -151,6 +152,7 @@ randomness = 0.2
 process_material = SubResource( 12 )
 
 [node name="Particles2D_left" type="Particles2D" parent="Exit"]
+visible = false
 position = Vector2( -112, 75 )
 scale = Vector2( 10, 10 )
 amount = 16
