@@ -3,6 +3,7 @@ extends KinematicBody2D
 export var SPEED = 250
 
 onready var enemy = $"AnimationPlayer"
+onready var player: = get_node("/root/Node2D/Player")
 
 var velocity
 

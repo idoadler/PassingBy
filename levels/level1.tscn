@@ -175,6 +175,12 @@ occluder = SubResource( 14 )
 modulate = Color( 1, 1, 1, 0 )
 occluder = SubResource( 15 )
 
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
+position = Vector2( 0, -136 )
+polygon = PoolVector2Array( 2118, -56, 2097, 310, 1513, 335, 1488, 60, 1274, 64, 1281, 349, -3, 328, 11, 1246, 1925, 1288, 1928, 356, 2090, 345, 2051, 1742, -626, 1682, -538, -34 )
+
 [connection signal="pressed" from="TouchUI/TouchScreenButton" to="Player" method="_on_TouchScreenButton_pressed"]
 [connection signal="body_shape_entered" from="Exit" to="Exit" method="_on_Exit_body_shape_entered"]
 
