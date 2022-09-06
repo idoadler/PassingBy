@@ -27,7 +27,8 @@ func _process(delta):
 	if motion.length() < min_dist:
 		animation.play("Idle")
 	else:
-		move_and_slide(motion.normalized()*speed)
+		set_global_position(cur_pos+delta*motion.normalized()*speed)
+#		move_and_slide(motion.normalized()*speed)
 		animation.play("Walk")
 		if motion.x > 0: get_node("Face").flip_h = true 
 		else: get_node("Face").flip_h = false	

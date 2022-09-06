@@ -51,15 +51,16 @@ func _process(delta):
 
 	if velocity.length() < 0.01:
 		face_anim.play("Idle")
+		move_and_slide(Vector2(0,0))
 	else:
 		if velocity.length() > 1:
 			velocity = velocity.normalized()
 		move_and_slide(velocity*speed)	
-		position.x = clamp(position.x, 0, get_viewport_rect().size.x)
-		position.y = clamp(position.y, 0, get_viewport_rect().size.y)
 		face_anim.play("Walk")
 		if velocity.x > 0: get_node("Face").flip_h = true 
 		else: get_node("Face").flip_h = false	
+	position.x = clamp(position.x, 0, get_viewport_rect().size.x)
+	position.y = clamp(position.y, 0, get_viewport_rect().size.y)
 
 func _on_TouchScreenButton_pressed():
 	body_anim.stop(true)
