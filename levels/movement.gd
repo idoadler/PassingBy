@@ -7,7 +7,8 @@ export var exceleration = 3
 export var decexeleration = 3
 export(float) var animation_speed = 1.0
 
-onready var player = $"AnimationPlayer"
+onready var body_anim = $"AnimationPlayer"
+onready var face_anim = $"AnimationPlayer2"
 
 var velocity
 
@@ -15,14 +16,14 @@ func _ready():
 	velocity = Vector2(0,0)
 
 func _is_square():
-	if player.get_current_animation() != FADE_ANIM:
+	if body_anim.get_current_animation() != FADE_ANIM:
 		return false
-	return player.get_current_animation_position() / player.get_current_animation_length() < 0.5
+	return body_anim.get_current_animation_position() / body_anim.get_current_animation_length() < 0.5
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_select"):
-		player.stop(true)
-		player.play(FADE_ANIM, 0, animation_speed)
+		body_anim.stop(true)
+		body_anim.play(FADE_ANIM, 0, animation_speed)
 		print(_is_square())
 
 	var motion = Vector2(0,0)
@@ -48,14 +49,19 @@ func _process(delta):
 		velocity.x = 0
 
 	velocity += motion 
-	if velocity.length() > 1:
-		velocity = velocity.normalized()
 
-	move_and_slide(velocity*speed)
-	
-	position.x = clamp(position.x, 0, get_viewport_rect().size.x)
-	position.y = clamp(position.y, 0, get_viewport_rect().size.y)
+	if velocity.length() < 0.01:
+		face_anim.play("Idle")
+	else:
+		if velocity.length() > 1:
+			velocity = velocity.normalized()
+		move_and_slide(velocity*speed)	
+		position.x = clamp(position.x, 0, get_viewport_rect().size.x)
+		position.y = clamp(position.y, 0, get_viewport_rect().size.y)
+		face_anim.play("Walk")
+		if velocity.x > 0: get_node("Face").flip_h = true 
+		else: get_node("Face").flip_h = false	
 
 func _on_TouchScreenButton_pressed():
-	player.stop(true)
-	player.play("FadeToPink", 0, animation_speed)
+	body_anim.stop(true)
+	body_anim.play("FadeToPink", 0, animation_speed)
