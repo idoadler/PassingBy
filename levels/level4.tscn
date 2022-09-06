@@ -112,10 +112,9 @@ scale = Vector2( 0.848673, 1.33605 )
 occluder = SubResource( 17 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 216, 279 )
-speed = 260
+position = Vector2( 132, 413 )
 exceleration = 10
-animation_speed = 1.5
+animation_speed = 2.0
 
 [node name="Light2D" parent="Player" index="0"]
 visible = false
@@ -131,16 +130,60 @@ normal = ExtResource( 7 )
 [node name="Moving Enemies" type="Node" parent="."]
 
 [node name="m_Enemy" parent="Moving Enemies" instance=ExtResource( 10 )]
-position = Vector2( 749, 325 )
-radius = 600
+position = Vector2( 1218, 858 )
+radius = 800
 
 [node name="m_Enemy2" parent="Moving Enemies" instance=ExtResource( 10 )]
-position = Vector2( 1154, 272 )
-radius = 600
+position = Vector2( 1084, 632 )
+radius = 800
 
 [node name="m_Enemy3" parent="Moving Enemies" instance=ExtResource( 10 )]
-position = Vector2( 1340, 415 )
-radius = 600
+position = Vector2( 864, 510 )
+radius = 800
+
+[node name="m_Enemy4" parent="Moving Enemies" instance=ExtResource( 10 )]
+position = Vector2( 1061, 420 )
+radius = 800
+
+[node name="m_Enemy5" parent="Moving Enemies" instance=ExtResource( 10 )]
+position = Vector2( 1256, 329 )
+radius = 800
+
+[node name="m_Enemy6" parent="Moving Enemies" instance=ExtResource( 10 )]
+position = Vector2( 1303, 606 )
+radius = 800
+
+[node name="m_Enemy7" parent="Moving Enemies" instance=ExtResource( 10 )]
+position = Vector2( 1469, 352 )
+radius = 800
+
+[node name="m_Enemy8" parent="Moving Enemies" instance=ExtResource( 10 )]
+position = Vector2( 1678, 334 )
+radius = 800
+
+[node name="m_Enemy9" parent="Moving Enemies" instance=ExtResource( 10 )]
+position = Vector2( 866, 299 )
+radius = 800
+
+[node name="m_Enemy10" parent="Moving Enemies" instance=ExtResource( 10 )]
+position = Vector2( 861, 746 )
+radius = 800
+
+[node name="m_Enemy11" parent="Moving Enemies" instance=ExtResource( 10 )]
+position = Vector2( 641, 689 )
+radius = 800
+
+[node name="m_Enemy12" parent="Moving Enemies" instance=ExtResource( 10 )]
+position = Vector2( 784, 940 )
+radius = 800
+
+[node name="m_Enemy13" parent="Moving Enemies" instance=ExtResource( 10 )]
+position = Vector2( 572, 891 )
+radius = 800
+
+[node name="m_Enemy14" parent="Moving Enemies" instance=ExtResource( 10 )]
+position = Vector2( 379, 723 )
+radius = 800
 
 [node name="Static Enemies" type="Node" parent="."]
 
@@ -156,7 +199,7 @@ position = Vector2( 1678, 943 )
 [node name="NPCs" type="Node" parent="."]
 
 [node name="Npc" type="Sprite" parent="NPCs"]
-position = Vector2( 1037, 981 )
+position = Vector2( 316, 291 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 1 )
 
@@ -166,7 +209,7 @@ scale = Vector2( 30, 28.1562 )
 texture = ExtResource( 5 )
 
 [node name="Npc2" type="Sprite" parent="NPCs"]
-position = Vector2( 860, 970 )
+position = Vector2( 1780, 514 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 1 )
 
@@ -176,7 +219,7 @@ scale = Vector2( 30, 28.1562 )
 texture = ExtResource( 5 )
 
 [node name="Npc3" type="Sprite" parent="NPCs"]
-position = Vector2( 1219, 1057 )
+position = Vector2( 1586, 552 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 1 )
 
@@ -188,7 +231,7 @@ texture = ExtResource( 5 )
 [node name="Exit" type="Area2D" parent="."]
 position = Vector2( 1388, 233 )
 script = ExtResource( 9 )
-next_scene = "res://levels/level2.tscn"
+next_scene = "res://levels/level1.tscn"
 
 [node name="Sprite" type="Sprite" parent="Exit"]
 position = Vector2( -53, -95 )
