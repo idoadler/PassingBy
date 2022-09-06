@@ -1,6 +1,8 @@
 extends KinematicBody2D
 
-export var SPEED = 250
+const FADE_ANIM = "FadeToPink"
+
+export var speed = 250
 export var exceleration = 3
 export var decexeleration = 3
 export(float) var animation_speed = 1.0
@@ -12,10 +14,16 @@ var velocity
 func _ready():
 	velocity = Vector2(0,0)
 
+func _is_square():
+	if player.get_current_animation() != FADE_ANIM:
+		return false
+	return player.get_current_animation_position() / player.get_current_animation_length() < 0.5
+
 func _process(delta):
 	if Input.is_action_just_pressed("ui_select"):
 		player.stop(true)
-		player.play("FadeToPink", 0, animation_speed)
+		player.play(FADE_ANIM, 0, animation_speed)
+		print(_is_square())
 
 	var motion = Vector2(0,0)
 	if Input.is_action_pressed("ui_up"):
@@ -40,10 +48,10 @@ func _process(delta):
 		velocity.x = 0
 
 	velocity += motion 
-	velocity.x = clamp(velocity.x,-1,1)
-	velocity.y = clamp(velocity.y,-1,1)
+	if velocity.length() > 1:
+		velocity = velocity.normalized()
 
-	move_and_slide(velocity*SPEED)
+	move_and_slide(velocity*speed)
 	
 	position.x = clamp(position.x, 0, get_viewport_rect().size.x)
 	position.y = clamp(position.y, 0, get_viewport_rect().size.y)

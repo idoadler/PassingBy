@@ -2,36 +2,32 @@ extends KinematicBody2D
 
 export var speed = 250
 export var radius = 300
+export var min_dist = 10
 
 onready var animation = $"AnimationPlayer"
 onready var player: = get_node("/root/Node2D/Player")
 
-var velocity
+var start_pos
 
 func _ready():
-	velocity = Vector2(0,0)
+	start_pos = get_global_position()
 
 func _process(delta):
-	var motion = Vector2(0,0)
-	print(str(get_global_position().distance_to(player.get_global_position())))
-	if get_global_position().distance_to(player.get_global_position()) < radius:
-		if get_global_position().y > player.get_global_position().y:
-			motion += Vector2(0,-1)
-		if get_global_position().y < player.get_global_position().y:
-			motion += Vector2(0,1)
-		if get_global_position().x > player.get_global_position().x:
-			motion += Vector2(-1,0)
-		if get_global_position().x < player.get_global_position().x:
-			motion += Vector2(1,0)
+	var motion
+	var target_pos = player.get_global_position()
+	var cur_pos = get_global_position()
+	if start_pos.distance_to(target_pos) < radius:
+		if player._is_square():
+			motion = Vector2(0,0)
+		else:
+			motion = target_pos - cur_pos
+	else:
+		motion = start_pos - cur_pos
 
-	velocity = motion
-	velocity.x = clamp(velocity.x,-1,1)
-	velocity.y = clamp(velocity.y,-1,1)
-
-	move_and_slide(velocity*speed)
-	if velocity.x == 0 && velocity.y == 0:
+	if motion.length() < min_dist:
 		animation.play("Idle")
-	else: 
+	else:
+		move_and_slide(motion.normalized()*speed)
 		animation.play("Walk")
-		if velocity.x > 0: get_node("Face").flip_h = true 
+		if motion.x > 0: get_node("Face").flip_h = true 
 		else: get_node("Face").flip_h = false	
