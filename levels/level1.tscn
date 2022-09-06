@@ -11,7 +11,7 @@
 [ext_resource path="res://levels/exit.gd" type="Script" id=9]
 [ext_resource path="res://levels/m_Enemy.tscn" type="PackedScene" id=10]
 [ext_resource path="res://levels/s_Enemy.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Sprites/sound1.png" type="Texture" id=12]
+[ext_resource path="res://levels/sound_manager.tscn" type="PackedScene" id=12]
 
 [sub_resource type="OccluderPolygon2D" id=16]
 closed = false
@@ -113,7 +113,6 @@ occluder = SubResource( 17 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 216, 279 )
-SPEED = 600
 exceleration = 10
 
 [node name="Light2D" parent="Player" index="0"]
@@ -241,13 +240,14 @@ occluder = SubResource( 15 )
 position = Vector2( 0, -136 )
 polygon = PoolVector2Array( 2118, -56, 2097, 310, 1513, 335, 1488, 60, 1274, 64, 1281, 349, -3, 328, 11, 1246, 1925, 1288, 1928, 356, 2090, 345, 2051, 1742, -626, 1682, -538, -34 )
 
-[node name="Sound1" type="Sprite" parent="."]
-position = Vector2( 60, 46 )
-scale = Vector2( 1.42953, 1.42953 )
-texture = ExtResource( 12 )
+[node name="Sound Manager" parent="." instance=ExtResource( 12 )]
+
+[node name="Door" parent="Sound Manager" index="6"]
+position = Vector2( 1393, 258 )
 
 [connection signal="pressed" from="TouchUI/TouchScreenButton" to="Player" method="_on_TouchScreenButton_pressed"]
 [connection signal="body_shape_entered" from="Exit" to="Exit" method="_on_Exit_body_shape_entered"]
 
 [editable path="Player"]
 [editable path="TouchUI"]
+[editable path="Sound Manager"]

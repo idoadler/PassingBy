@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Passing_By_tension_fnl.mp3-95eddf7cfb427423f28833779f5f71d7.mp3str"
+
+[deps]
+
+source_file="res://music/Passing_By_tension_fnl.mp3"
+dest_files=[ "res://.import/Passing_By_tension_fnl.mp3-95eddf7cfb427423f28833779f5f71d7.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

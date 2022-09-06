@@ -24,7 +24,6 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_select"):
 		body_anim.stop(true)
 		body_anim.play(FADE_ANIM, 0, animation_speed)
-		print(_is_square())
 
 	var motion = Vector2(0,0)
 	if Input.is_action_pressed("ui_up"):
