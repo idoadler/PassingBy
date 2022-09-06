@@ -3,19 +3,21 @@ extends Node2D
 export(float) var door_distance = 600
 
 onready var door = $"Door"
+onready var button = $"Button"
 onready var on_sprite = $"Sound_on"
 onready var room_music = $"AudioStreamPlayer"
 onready var party_music = $"AudioStreamPlayer2"
 onready var player: = get_node("/root/Node2D/Player")
 
-var muted = false
 var door_pos
 
 func _ready():
 	door_pos = door.get_global_position()
+	button.set_pressed_no_signal(PlayerVariables.muted)
+	_on_Button_toggled(PlayerVariables.muted)
 
 func _process(delta):
-	if muted:
+	if PlayerVariables.muted:
 		return
 	var distance = door_pos.distance_to(player.get_global_position())
 	if distance > door_distance:
@@ -26,7 +28,8 @@ func _process(delta):
 		party_music.volume_db = linear2db(1-distance/door_distance)
 
 func _on_Button_toggled(button_pressed):
-	muted = button_pressed
+	var muted = button_pressed
+	PlayerVariables.muted = muted
 	on_sprite.set_visible(!muted)
 	room_music.set_stream_paused(muted)
 	party_music.set_stream_paused(muted)
