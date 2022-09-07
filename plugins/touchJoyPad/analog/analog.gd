@@ -34,12 +34,13 @@ func _input(event):
 		return
 	
 	if need2ChangeActivePointer(event):
-		currentFinger = event.index
+		if event is InputEventScreenTouch:
+			currentFinger = event.index
 		if (currentPointerIDX != incomingPointer) and event.is_pressed():
 			currentPointerIDX = incomingPointer
 			showAtPos(Vector2(event.position.x, event.position.y))
 
-	if event.index != currentFinger:
+	if event is InputEventScreenTouch && event.index != currentFinger:
 		return
 	
 	var theSamePointer = currentPointerIDX == incomingPointer

@@ -62,6 +62,6 @@ func _process(delta):
 	position.x = clamp(position.x, 0, get_viewport_rect().size.x)
 	position.y = clamp(position.y, 0, get_viewport_rect().size.y)
 
-func _on_TouchScreenButton_pressed():
+func disguise():
 	body_anim.stop(true)
 	body_anim.play("FadeToPink", 0, animation_speed)

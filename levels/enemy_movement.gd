@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 export var speed = 250
 export var radius = 300
-export var min_dist = 10
+export var min_dist = 25
 
 onready var animation = $"AnimationPlayer"
 onready var player: = get_node("/root/Node2D/Player")
@@ -16,13 +16,16 @@ func _process(delta):
 	var motion
 	var target_pos = player.get_global_position()
 	var cur_pos = get_global_position()
-	if start_pos.distance_to(target_pos) < radius:
+	var player_dist = start_pos.distance_to(target_pos)
+	if player_dist < radius:
 		if player._is_square():
 			motion = Vector2(0,0)
 		else:
 			motion = target_pos - cur_pos
-	else:
+	elif player_dist > radius + min_dist:
 		motion = start_pos - cur_pos
+	else:
+		motion = Vector2(0,0)
 
 	if motion.length() < min_dist:
 		animation.play("Idle")
