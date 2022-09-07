@@ -45,8 +45,5 @@ autoplay = true
 stream = ExtResource( 5 )
 autoplay = true
 
-[node name="Door" type="Node2D" parent="."]
-position = Vector2( 1393, 162 )
-
 [connection signal="toggled" from="Button" to="." method="_on_Button_toggled"]
 [connection signal="pressed" from="TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]

@@ -16,7 +16,6 @@ var squaredHalfSizeLength = 0
 var currentPointerIDX = INACTIVE_IDX;
 var currentFinger = INACTIVE_IDX;
 
-
 func _ready():
 	if AnalogTapToShowContainer == "":
 		AnalogTapToShowContainer = get_parent()

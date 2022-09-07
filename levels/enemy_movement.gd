@@ -5,7 +5,7 @@ export var radius = 300
 export var min_dist = 25
 
 onready var animation = $"AnimationPlayer"
-onready var player: = get_node("/root/Node2D/Player")
+onready var player: = $"%Player"
 
 var start_pos
 

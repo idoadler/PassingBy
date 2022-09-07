@@ -2,12 +2,12 @@ extends Node2D
 
 export(float) var door_distance = 600
 
-onready var door = $"Door"
 onready var button = $"Button"
 onready var on_sprite = $"Sound_on"
 onready var room_music = $"AudioStreamPlayer"
 onready var party_music = $"AudioStreamPlayer2"
-onready var player: = get_node("/root/Node2D/Player")
+onready var door = $"%Exit"
+onready var player: = $"%Player"
 
 var door_pos
 
