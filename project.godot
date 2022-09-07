@@ -17,6 +17,8 @@ config/icon="res://Sprites/pink_crc_faceN.png"
 [autoload]
 
 PlayerVariables="*res://levels/player_variables.gd"
+Transitions="*res://addons/transitions/Transitions.gd"
+FancyFade="*res://addons/transitions/FancyFade.gd"
 
 [display]
 
