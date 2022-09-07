@@ -81,14 +81,14 @@ __meta__ = {
 }
 
 [node name="bg" type="Sprite" parent="."]
+z_index = 10
 texture = ExtResource( 3 )
 
 [node name="ball" type="Sprite" parent="."]
+z_index = 10
 texture = ExtResource( 2 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." groups=[
-"JoyStick",
-]]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." groups=["JoyStick"]]
 anims/alpha_in = SubResource( 1 )
 anims/alpha_out = SubResource( 2 )
 anims/ball_center = SubResource( 3 )

@@ -14,6 +14,7 @@ var currentForce = Vector2(0,0)
 var ballPos = Vector2()
 var squaredHalfSizeLength = 0
 var currentPointerIDX = INACTIVE_IDX;
+var currentFinger = INACTIVE_IDX;
 
 
 func _ready():
@@ -28,16 +29,19 @@ func get_force():
 	return currentForce
 	
 func _input(event):
-	
 	var incomingPointer = extractPointerIdx(event)
 	if incomingPointer == INACTIVE_IDX:
 		return
 	
 	if need2ChangeActivePointer(event):
+		currentFinger = event.index
 		if (currentPointerIDX != incomingPointer) and event.is_pressed():
-			currentPointerIDX = incomingPointer;
-			showAtPos(Vector2(event.position.x, event.position.y));
+			currentPointerIDX = incomingPointer
+			showAtPos(Vector2(event.position.x, event.position.y))
 
+	if event.index != currentFinger:
+		return
+	
 	var theSamePointer = currentPointerIDX == incomingPointer
 	if isActive() and theSamePointer:
 		process_input(event)
