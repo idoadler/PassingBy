@@ -12,12 +12,18 @@ onready var player: = $"%Player"
 var door_pos
 
 func _ready():
-	door_pos = door.get_global_position()
+	if door:
+		door_pos = door.get_global_position()
+	else:
+		room_music.volume_db = linear2db(1)
+		party_music.volume_db = linear2db(0)
 	button.set_pressed_no_signal(PlayerVariables.muted)
 	_on_Button_toggled(PlayerVariables.muted)
 
 func _process(delta):
 	if PlayerVariables.muted:
+		return
+	if !door:
 		return
 	var distance = door_pos.distance_to(player.get_global_position())
 	if distance > door_distance:
