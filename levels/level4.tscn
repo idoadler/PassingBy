@@ -62,7 +62,7 @@ polygon = PoolVector2Array( 128, 61, -1132, 854 )
 [node name="Node2D" type="Node2D"]
 
 [node name="Background" type="Sprite" parent="."]
-modulate = Color( 0.859375, 0.859375, 0.859375, 1 )
+modulate = Color( 0.854902, 0.866667, 1, 1 )
 position = Vector2( 960, 540 )
 texture = ExtResource( 2 )
 
@@ -224,7 +224,7 @@ texture = ExtResource( 5 )
 unique_name_in_owner = true
 position = Vector2( 1388, 233 )
 script = ExtResource( 9 )
-next_scene = "res://levels/menu.tscn"
+next_scene = "res://levels/level99_party.tscn"
 
 [node name="Sprite" type="Sprite" parent="Exit"]
 position = Vector2( -53, -95 )
