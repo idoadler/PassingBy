@@ -1,15 +1,16 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
-[ext_resource path="res://levels/TouchUI.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Sprites/background-iso-clean.png" type="Texture" id=2]
-[ext_resource path="res://levels/player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Sprites/door.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/blue_sqr_faceN_164.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/background-iso-clean.png" type="Texture" id=1]
+[ext_resource path="res://levels/sound_manager.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/end screen.png" type="Texture" id=3]
+[ext_resource path="res://levels/TouchUI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://levels/player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Sprites/LightTexture-radialgradient.png" type="Texture" id=6]
-[ext_resource path="res://music/Passing_By_full.mp3" type="AudioStream" id=7]
-[ext_resource path="res://Sprites/pink_crc_faceN.png" type="Texture" id=8]
-[ext_resource path="res://levels/exit.gd" type="Script" id=9]
-[ext_resource path="res://levels/sound_manager.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Sprites/door.png" type="Texture" id=7]
+[ext_resource path="res://levels/exit.gd" type="Script" id=8]
+[ext_resource path="res://music/Passing_By_full.mp3" type="AudioStream" id=9]
+[ext_resource path="res://Sprites/blue_sqr_faceN_164.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/pink_crc_faceN.png" type="Texture" id=11]
 
 [sub_resource type="Animation" id=25]
 resource_name = "party"
@@ -221,7 +222,7 @@ anims/party = SubResource( 25 )
 [node name="Background" type="Sprite" parent="."]
 modulate = Color( 0.764706, 0.764706, 0.764706, 1 )
 position = Vector2( 960, 540 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 
 [node name="Light2D" type="Light2D" parent="Background"]
 visible = false
@@ -267,8 +268,9 @@ position = Vector2( 1233.79, 0 )
 scale = Vector2( 0.848673, 1.33605 )
 occluder = SubResource( 17 )
 
-[node name="Player" parent="." instance=ExtResource( 3 )]
+[node name="Player" parent="." instance=ExtResource( 5 )]
 unique_name_in_owner = true
+visible = false
 position = Vector2( 216, 279 )
 exceleration = 10
 
@@ -283,13 +285,13 @@ polygon = PoolVector2Array( 2118, -56, 2097, 310, 1513, 335, 1488, 60, 1274, 64,
 [node name="Exit" type="Area2D" parent="."]
 unique_name_in_owner = true
 position = Vector2( 1388, 233 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 next_scene = "res://levels/level1.tscn"
 
 [node name="Sprite" type="Sprite" parent="Exit"]
 position = Vector2( -53, -95 )
 scale = Vector2( 0.0431299, 0.094164 )
-texture = ExtResource( 4 )
+texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
 position = Vector2( 3.50012, -65.5 )
@@ -334,6 +336,7 @@ modulate = Color( 1, 1, 1, 0 )
 occluder = SubResource( 24 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
 modulate = Color( 0, 0, 0, 1 )
 margin_left = 1598.0
 margin_top = 78.0
@@ -356,16 +359,16 @@ margin_bottom = 63.0
 rect_scale = Vector2( 3, 3 )
 text = "Replay"
 
-[node name="Sound Manager" parent="." instance=ExtResource( 12 )]
+[node name="Sound Manager" parent="." instance=ExtResource( 2 )]
 disable_transition = true
 
 [node name="AudioStreamPlayer" parent="Sound Manager" index="4"]
-stream = ExtResource( 7 )
+stream = ExtResource( 9 )
 
-[node name="TouchUI" parent="." instance=ExtResource( 1 )]
+[node name="TouchUI" parent="." instance=ExtResource( 4 )]
 
 [node name="Dancer" type="Node2D" parent="."]
-position = Vector2( 1207, 604 )
+position = Vector2( 1199, 607 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Dancer"]
 autoplay = "dance"
@@ -373,10 +376,10 @@ playback_speed = 1.15
 anims/dance = SubResource( 26 )
 
 [node name="Sprite" type="Sprite" parent="Dancer"]
-texture = ExtResource( 5 )
+texture = ExtResource( 10 )
 
 [node name="Dancer2" type="Node2D" parent="."]
-position = Vector2( 872, 407 )
+position = Vector2( 890, 425 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Dancer2"]
 autoplay = "dance"
@@ -384,10 +387,10 @@ playback_speed = 1.2
 anims/dance = SubResource( 27 )
 
 [node name="Sprite" type="Sprite" parent="Dancer2"]
-texture = ExtResource( 5 )
+texture = ExtResource( 10 )
 
 [node name="Dancer3" type="Node2D" parent="."]
-position = Vector2( 863, 794 )
+position = Vector2( 352, 724 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Dancer3"]
 autoplay = "dance"
@@ -395,7 +398,7 @@ playback_speed = 0.85
 anims/dance = SubResource( 28 )
 
 [node name="Sprite" type="Sprite" parent="Dancer3"]
-texture = ExtResource( 5 )
+texture = ExtResource( 10 )
 
 [node name="Dancer4" type="Node2D" parent="."]
 position = Vector2( 1542, 477 )
@@ -406,10 +409,10 @@ playback_speed = 0.95
 anims/dance = SubResource( 29 )
 
 [node name="Sprite" type="Sprite" parent="Dancer4"]
-texture = ExtResource( 5 )
+texture = ExtResource( 10 )
 
 [node name="Dancer5" type="Node2D" parent="."]
-position = Vector2( 1225, 832 )
+position = Vector2( 1278, 925 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Dancer5"]
 autoplay = "dance"
@@ -418,10 +421,10 @@ anims/dance = SubResource( 30 )
 
 [node name="Sprite" type="Sprite" parent="Dancer5"]
 scale = Vector2( 3, 3 )
-texture = ExtResource( 8 )
+texture = ExtResource( 11 )
 
 [node name="Dancer6" type="Node2D" parent="."]
-position = Vector2( 625, 586 )
+position = Vector2( 537, 952 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Dancer6"]
 autoplay = "dance"
@@ -430,10 +433,10 @@ anims/dance = SubResource( 31 )
 
 [node name="Sprite" type="Sprite" parent="Dancer6"]
 scale = Vector2( 3, 3 )
-texture = ExtResource( 8 )
+texture = ExtResource( 11 )
 
 [node name="Dancer7" type="Node2D" parent="."]
-position = Vector2( 1752, 600 )
+position = Vector2( 1724, 628 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Dancer7"]
 autoplay = "dance"
@@ -441,7 +444,7 @@ anims/dance = SubResource( 32 )
 
 [node name="Sprite" type="Sprite" parent="Dancer7"]
 scale = Vector2( 3, 3 )
-texture = ExtResource( 8 )
+texture = ExtResource( 11 )
 
 [node name="Dancer8" type="Node2D" parent="."]
 position = Vector2( 1113, 356 )
@@ -453,7 +456,11 @@ anims/dance = SubResource( 33 )
 
 [node name="Sprite" type="Sprite" parent="Dancer8"]
 scale = Vector2( 3, 3 )
-texture = ExtResource( 8 )
+texture = ExtResource( 11 )
+
+[node name="EndScreen" type="Sprite" parent="."]
+position = Vector2( 963, 545 )
+texture = ExtResource( 3 )
 
 [connection signal="body_shape_entered" from="Exit" to="Exit" method="_on_Exit_body_shape_entered"]
 
