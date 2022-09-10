@@ -234,6 +234,7 @@ position = Vector2( 125, 776 )
 exceleration = 10
 
 [node name="Exit" parent="." instance=ExtResource( 8 )]
+next_scene = "res://levels/menu.tscn"
 
 [node name="Walls" type="StaticBody2D" parent="."]
 collision_layer = 3
