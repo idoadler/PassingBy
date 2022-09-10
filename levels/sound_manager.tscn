@@ -9,6 +9,7 @@
 
 [node name="Sound Manager" type="Node2D"]
 script = ExtResource( 1 )
+door_distance = 500.0
 
 [node name="Button" type="Button" parent="."]
 modulate = Color( 1, 1, 1, 0.301961 )

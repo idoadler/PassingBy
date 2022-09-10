@@ -3,6 +3,7 @@ extends KinematicBody2D
 export var speed = 250
 export var radius = 300
 export var min_dist = 25
+export var player_radius = 165
 
 onready var animation = $"AnimationPlayer"
 onready var player: = $"%Player"
@@ -17,11 +18,8 @@ func _process(delta):
 	var target_pos = player.get_global_position()
 	var cur_pos = get_global_position()
 	var player_dist = start_pos.distance_to(target_pos)
-	if player_dist < radius:
-		if player._is_square():
-			motion = Vector2(0,0)
-		else:
-			motion = target_pos - cur_pos
+	if player_dist < radius and cur_pos.distance_to(target_pos) > player_radius and not player._is_square():
+		motion = target_pos - cur_pos
 	elif player_dist > radius + min_dist:
 		motion = start_pos - cur_pos
 	else:
