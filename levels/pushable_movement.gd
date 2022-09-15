@@ -1,19 +1,17 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
-export var speed = 250
-export var min_dist = 25
-
-onready var animation = $"AnimationPlayer"
+@export var speed = 250
+@export var min_dist = 25
 
 var start_pos
 var target_pos
-var last_timer = OS.get_ticks_msec()
-var reset_timer = rand_range(100, 800)
+var last_timer = Time.get_ticks_msec()
+var reset_timer = randf_range(100, 800)
 
 func _rand_pos():
-	last_timer = OS.get_ticks_msec()
-	target_pos = start_pos + Vector2(rand_range(-50,50), rand_range(-50,50))
-	reset_timer = rand_range(100, 800)
+	last_timer = Time.get_ticks_msec()
+	target_pos = start_pos + Vector2(randf_range(-50,50), randf_range(-50,50))
+	reset_timer = randf_range(100, 800)
 
 func _ready():
 	randomize()
@@ -21,7 +19,7 @@ func _ready():
 	target_pos = start_pos
 
 func _process(delta):
-	if OS.get_ticks_msec() - last_timer > reset_timer:
+	if Time.get_ticks_msec() - last_timer > reset_timer:
 		_rand_pos()
 	var motion
 	var cur_pos = get_global_position()
@@ -32,6 +30,8 @@ func _process(delta):
 		motion = Vector2(0,0)
 
 	if motion.length() > min_dist:
-		move_and_slide(motion.normalized()*speed)
+		set_velocity(motion.normalized()*speed)
+		move_and_slide()
 	else:
-		move_and_slide(Vector2(0,0))
+		set_velocity(Vector2(0,0))
+		move_and_slide()

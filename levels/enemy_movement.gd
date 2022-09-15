@@ -1,12 +1,12 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
-export var speed = 250
-export var radius = 300
-export var min_dist = 25
-export var player_radius = 165
+@export var speed = 250
+@export var radius = 300
+@export var min_dist = 25
+@export var player_radius = 165
 
-onready var animation = $"AnimationPlayer"
-onready var player: = $"%Player"
+@onready var animation = $"AnimationPlayer"
+@onready var player: = $"%Player"
 
 var start_pos
 
@@ -29,7 +29,9 @@ func _process(delta):
 		animation.play("Idle")
 	else:
 		set_global_position(cur_pos+delta*motion.normalized()*speed)
-#		move_and_slide(motion.normalized()*speed)
+		set_velocity(motion.normalized()*speed)
+		move_and_slide()
+#		velocity
 		animation.play("Walk")
 		if motion.x > 0: get_node("Face").flip_h = true 
 		else: get_node("Face").flip_h = false	

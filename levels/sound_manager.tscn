@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://levels/sound_manager.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/sound1.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/sound1_off.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/sound1.png" type="Texture2D" id=2]
+[ext_resource path="res://Sprites/sound1_off.png" type="Texture2D" id=3]
 [ext_resource path="res://music/Passing_By_tension_fnl.mp3" type="AudioStream" id=4]
 [ext_resource path="res://music/Passing_By_full.mp3" type="AudioStream" id=5]
-[ext_resource path="res://Sprites/black_sqr.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/black_sqr.png" type="Texture2D" id=6]
 
 [node name="Sound Manager" type="Node2D"]
 script = ExtResource( 1 )
@@ -13,14 +13,14 @@ door_distance = 500.0
 
 [node name="Button" type="Button" parent="."]
 modulate = Color( 1, 1, 1, 0.301961 )
-margin_left = 5.0
-margin_top = 5.0
-margin_right = 125.0
-margin_bottom = 85.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 125.0
+offset_bottom = 85.0
 focus_mode = 0
 toggle_mode = true
 shortcut_in_tooltip = false
-enabled_focus_mode = 0
+focus_mode = 0
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="."]
 visible = false
@@ -28,12 +28,12 @@ modulate = Color( 1, 1, 1, 0.352941 )
 scale = Vector2( 2.00694, 1.50879 )
 normal = ExtResource( 6 )
 
-[node name="Sound_off" type="Sprite" parent="."]
+[node name="Sound_off" type="Sprite2D" parent="."]
 position = Vector2( 60, 46 )
 scale = Vector2( 1.42953, 1.42953 )
 texture = ExtResource( 3 )
 
-[node name="Sound_on" type="Sprite" parent="."]
+[node name="Sound_on" type="Sprite2D" parent="."]
 position = Vector2( 60, 46 )
 scale = Vector2( 1.42953, 1.42953 )
 texture = ExtResource( 2 )

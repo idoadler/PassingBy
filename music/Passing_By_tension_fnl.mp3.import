@@ -2,14 +2,18 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/Passing_By_tension_fnl.mp3-95eddf7cfb427423f28833779f5f71d7.mp3str"
+uid="uid://b32vl1ynqe0ci"
+path="res://.godot/imported/Passing_By_tension_fnl.mp3-95eddf7cfb427423f28833779f5f71d7.mp3str"
 
 [deps]
 
 source_file="res://music/Passing_By_tension_fnl.mp3"
-dest_files=[ "res://.import/Passing_By_tension_fnl.mp3-95eddf7cfb427423f28833779f5f71d7.mp3str" ]
+dest_files=["res://.godot/imported/Passing_By_tension_fnl.mp3-95eddf7cfb427423f28833779f5f71d7.mp3str"]
 
 [params]
 
 loop=true
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

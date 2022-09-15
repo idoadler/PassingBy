@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var door = $"%Exit"
+@onready var door = $"%Exit"
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_select"):

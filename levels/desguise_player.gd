@@ -1,6 +1,6 @@
 extends TouchScreenButton
 
-onready var player: = $"//root/Node2D/Player"
+@onready var player: = $"//root/Node2D/Player"
 
 func _ready():
 	get_parent().set_visible(PlayerVariables.touch)

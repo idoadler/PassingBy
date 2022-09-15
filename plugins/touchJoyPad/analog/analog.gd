@@ -1,13 +1,17 @@
 extends Node2D
 
 const INACTIVE_IDX = -1;
-export var AnalogTapToShow = false setget set_tap_to_show
-export var AnalogTapToShowContainer = ""
-export var mapAnalogToDpad = true
+@export var AnalogTapToShow = false :
+	get:
+		return AnalogTapToShow # TODOConverter40 Non existent get function 
+	set(mod_value):
+		mod_value  # TODOConverter40 Copy here content of set_tap_to_show
+@export var AnalogTapToShowContainer = ""
+@export var mapAnalogToDpad = true
 
-onready var ball = $ball
-onready var animation_player = $AnimationPlayer
-onready var halfSize = $bg.texture.get_size()/2
+@onready var ball = $ball
+@onready var animation_player = $AnimationPlayer
+@onready var halfSize = $panel.texture.get_size()/2
 
 var centerPoint = Vector2(0,0)
 var currentForce = Vector2(0,0)
@@ -115,7 +119,7 @@ func isReleased(event):
 	elif event is InputEventMouseButton:
 		return !event.is_pressed()
 
-func calculateForce(var x, var y):
+func calculateForce(x, y):
 	#get direction
 	currentForce.x = (x - centerPoint.x)/halfSize.x
 	currentForce.y = -(y - centerPoint.y)/halfSize.y
@@ -128,11 +132,8 @@ func set_tap_to_show(value):
 	if value:
 		modulate.a = 0
 		
-		if not AnalogTapToShowContainer is ViewportContainer:
-			assert(
-				AnalogTapToShowContainer is ViewportContainer, 
-				"To use tag AnalogDynamicShowing you need to put GamePad inside a ViewportContainer"
-			)
+		if not AnalogTapToShowContainer is SubViewportContainer:
+			assert(AnalogTapToShowContainer is SubViewportContainer, "To use tag AnalogDynamicShowing you need to put GamePad inside a SubViewportContainer")
 	
 	AnalogTapToShow = value
 		

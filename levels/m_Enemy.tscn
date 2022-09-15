@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://levels/enemy_movement.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/blue_sqr_faceN_164.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/blue-sqr-spray.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/blue_sqr_faceN_164.png" type="Texture2D" id=2]
+[ext_resource path="res://Sprites/blue-sqr-spray.png" type="Texture2D" id=3]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 800, 800 )
@@ -19,8 +19,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.001, 0.5, 0.501, 0.502, 0.503, 1, 1.001, 1.5, 1.501 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.001, 0.5, 0.501, 0.502, 0.503, 1, 1.001, 1.5, 1.501 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ false, false, false, false, false, true, false, false, false, true ]
 }
@@ -34,8 +34,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ false ]
 }
@@ -46,8 +46,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ) ]
 }
@@ -55,7 +55,6 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=8]
 resource_name = "Walk"
 length = 0.3
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:offset")
 tracks/0/interp = 1
@@ -63,13 +62,13 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.1, 0.2, 0.3 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -6 ), Vector2( 0, 0 ), Vector2( 0, 2 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, -4 ), Vector2( 0, 0 ), Vector2( 0, 2 ) ]
 }
 
-[node name="m_Enemy" type="KinematicBody2D"]
+[node name="m_Enemy" type="CharacterBody2D"]
 position = Vector2( 420, 610 )
 collision_layer = 5
 collision_mask = 5
@@ -80,12 +79,12 @@ position = Vector2( 1.40009, -1.59999 )
 scale = Vector2( 0.1, 0.1 )
 shape = SubResource( 2 )
 
-[node name="Blue" type="Sprite" parent="."]
+[node name="Blue" type="Sprite2D" parent="."]
 position = Vector2( 1.40009, -1.59999 )
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 3 )
 
-[node name="Face" type="Sprite" parent="."]
+[node name="Face" type="Sprite2D" parent="."]
 position = Vector2( 1, -8 )
 texture = ExtResource( 2 )
 
